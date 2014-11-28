@@ -1,0 +1,4 @@
+services:
+#    ministryofjustice_sirius_portal.example:
+#        class: ministryofjustice\SiriusPortalBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

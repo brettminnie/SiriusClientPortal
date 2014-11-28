@@ -1,0 +1,4 @@
+ministryofjustice_sirius_portal:
+    resource: "@ministryofjusticeSiriusPortalBundle/Resources/config/routing.yml"
+    prefix:   /
+

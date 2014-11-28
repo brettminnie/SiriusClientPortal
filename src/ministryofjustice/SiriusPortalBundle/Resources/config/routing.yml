@@ -1,0 +1,3 @@
+ministryofjustice_sirius_portal_homepage:
+    path:     /
+    defaults: { _controller: ministryofjusticeSiriusPortalBundle:Default:index }

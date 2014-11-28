@@ -1,0 +1,16 @@
+<span id="person-data" data-id="{{ data.id }} ">
+    {% set type = data.className|split('\\') %}
+    <fieldset>
+        <legend>{{ type|last }} - {{ data.uId }}</legend>
+            <label for="client-names">Name</label>
+            <span id="client-names">{{ data.surname }}, {{ data.firstname }} {{ data.salutation }}</span>
+            <label for="client-email">E-Mail</label>
+            <span id="client-email">{{ data.email|default('') }}</span>
+
+            <fieldset>
+                 <legend>{{ data.powerOfAttorneys|length + data.deputyships|length }} case(s)</legend>
+            </fieldset>
+        {{ dump(data) }}
+    </fieldset>
+</span>
+
