@@ -1,16 +1,43 @@
-<span id="person-data" data-id="{{ data.id }} ">
-    {% set type = data.className|split('\\') %}
-    <fieldset>
-        <legend>{{ type|last }} - {{ data.uId }}</legend>
-            <label for="client-names">Name</label>
-            <span id="client-names">{{ data.surname }}, {{ data.firstname }} {{ data.salutation }}</span>
-            <label for="client-email">E-Mail</label>
-            <span id="client-email">{{ data.email|default('') }}</span>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>OPG Client Case Status Portal</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-            <fieldset>
-                 <legend>{{ data.powerOfAttorneys|length + data.deputyships|length }} case(s)</legend>
-            </fieldset>
-        {{ dump(data) }}
-    </fieldset>
-</span>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/ministryofjusticesiriusportal/css/styles.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('bundles/ministryofjusticesiriusportal/javascript/default.js') }}" ></script>
+    {% endblock %}
+
+</head>
+<body>
+
+<div id="content">
+{% if data is not defined %}
+    {% embed "ministryofjusticeSiriusPortalBundle:Default:login.html.twig" %}
+    {% endembed %}
+{% else %}
+    {% embed "ministryofjusticeSiriusPortalBundle:Default:tabs.html.twig" %}
+    {% endembed %}
+{% endif %}
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>
+</body>
+</html>

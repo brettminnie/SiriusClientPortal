@@ -1,0 +1,45 @@
+.login-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    margin-top: 150px;
+}
+
+.login-form label {
+    width: 200px;
+}
+
+.login-form input[type=button] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form .error {
+    color: #F00;
+}
+
+.display-data {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.display-data h3 {
+    color: #666;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.display-data h4 {
+    color: #999;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.display-data .field-name {
+    font-weight: bolder;
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+}

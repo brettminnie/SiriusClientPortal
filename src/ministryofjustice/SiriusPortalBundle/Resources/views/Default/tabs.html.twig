@@ -1,0 +1,30 @@
+<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
+    <li><a href="#mydetails" data-toggle="tab">My Details</a></li>
+    <li><a href="#mycases" data-toggle="tab">My Cases</a></li>
+    <li><a href="#mylinkeddetails" data-toggle="tab">My Linked Details</a></li>
+    <li><a href="#mylinkedcases" data-toggle="tab">My Linked Cases</a></li>
+    <li><a href="{{ path('ministryofjustice_sirius_portal_homepage') }}">Log Out</a></li>
+</ul>
+<div id="my-tab-content" class="tab-content">
+    <div class="tab-pane active" id="overview">
+        {% embed "ministryofjusticeSiriusPortalBundle:Default:overview.html.twig" %}
+        {% endembed %}
+    </div>
+    <div class="tab-pane" id="mydetails">
+        {% embed "ministryofjusticeSiriusPortalBundle:Default:my-details.html.twig" %}
+        {% endembed %}
+    </div>
+    <div class="tab-pane" id="mycases">
+        {% embed "ministryofjusticeSiriusPortalBundle:Default:my-cases.html.twig" %}
+        {% endembed %}
+    </div>
+    <div class="tab-pane" id="mylinkeddetails">
+        {% embed "ministryofjusticeSiriusPortalBundle:Default:my-linked-details.html.twig" %}
+        {% endembed %}
+    </div>
+    <div class="tab-pane" id="mylinkedcases">
+        {% embed "ministryofjusticeSiriusPortalBundle:Default:my-linked-cases.html.twig" %}
+        {% endembed %}
+    </div>
+</div>

@@ -1,0 +1,168 @@
+<table class="display-data">
+    {% for case in data.powerOfAttorneys %}
+        <tr>
+            <td colspan="2"><h3>Power of Attorney {{ case.caseSubtype|default('LPA') }} Application</h3></td>
+        </tr>
+        <tr>
+            <td class="field-name">Case Reference:</td>
+            <td>{{ case.uId|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Application Date:</td>
+            <td>{{ case.lpaReceiptDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Creation Date:</td>
+            <td>{{ case.lpaCreatedDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Due Date:</td>
+            <td>{{ case.dueDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Registration Date:</td>
+            <td>{{ case.registrationDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Closed Date:</td>
+            <td>{{ case.closedDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Status:</td>
+            <td>{{ case.status|default('') }}</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <h4>Attorneys</h4>
+            </td>
+        </tr>
+        {% for attorney in case.attorneys %}
+            <tr>
+                <td class="field-name">Name:</td>
+                <td>{{ attorney.salutation|default('') }} {{ attorney.firstname|default('') }} {{ attorney.surname|default('') }} </td>
+            </tr>
+            <tr>
+                <td class="field-name">Occupation:</td>
+                <td>{{ attorney.occupation|default('') }}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Company Name:</td>
+                <td>{{ attorney.companyName|default('') }}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Registrant:</td>
+                <td>{% if attorney.isAttorneyApplyingToRegister %}Yes{% else %}No{% endif %}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Active:</td>
+                <td>{% if attorney.systemStatus %}Yes{% else %}No{% endif %}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Type:</td>
+                <td>{{ attorney.className|split('\\')|last }}<td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="2">
+                <h4>Notified Persons</h4>
+            </td>
+        </tr>
+        {% for attorney in case.notifiedPersons %}
+            <tr>
+                <td class="field-name">Name:</td>
+                <td>{{ attorney.salutation|default('') }} {{ attorney.firstname|default('') }} {{ attorney.surname|default('') }} </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2">
+                <h4>Certificate Providers</h4>
+            </td>
+        </tr>
+        {% for attorney in case.certificateProviders %}
+            <tr>
+                <td class="field-name">Name:</td>
+                <td>{{ attorney.salutation|default('') }} {{ attorney.firstname|default('') }} {{ attorney.surname|default('') }} </td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+
+    {% for case in data.deputyships %}
+        <tr>
+            <td colspan="2"><h3>Deputyship {{ case.caseSubtype|default('LPA') }} Application</h3></td>
+        </tr>
+        <tr>
+            <td class="field-name">Case Reference:</td>
+            <td>{{ case.uId|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Application Date:</td>
+            <td>{{ case.lpaReceiptDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Creation Date:</td>
+            <td>{{ case.lpaCreatedDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Due Date:</td>
+            <td>{{ case.dueDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Registration Date:</td>
+            <td>{{ case.registrationDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Closed Date:</td>
+            <td>{{ case.closedDate|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Status:</td>
+            <td>{{ case.status|default('') }}</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <h4>Attorneys</h4>
+            </td>
+        </tr>
+        {% for attorney in case.attorneys %}
+            <tr>
+                <td class="field-name">Name:</td>
+                <td>{{ attorney.salutation|default('') }} {{ attorney.firstname|default('') }} {{ attorney.surname|default('') }} </td>
+            </tr>
+            <tr>
+                <td class="field-name">Occupation:</td>
+                <td>{{ attorney.occupation|default('') }}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Company Name:</td>
+                <td>{{ attorney.companyName|default('') }}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Registrant:</td>
+                <td>{% if attorney.isAttorneyApplyingToRegister %}Yes{% else %}No{% endif %}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Active:</td>
+                <td>{% if attorney.systemStatus %}Yes{% else %}No{% endif %}<td>
+            </tr>
+            <tr>
+                <td class="field-name">Type:</td>
+                <td>{{ attorney.className|split('\\')|last }}<td>
+            </tr>
+        {% endfor %}
+
+        <tr>
+            <td colspan="2">
+                <h4>Notified Persons</h4>
+            </td>
+        </tr>
+        {% for attorney in case.notifiedPersons %}
+            <tr>
+                <td class="field-name">Name:</td>
+                <td>{{ attorney.salutation|default('') }} {{ attorney.firstname|default('') }} {{ attorney.surname|default('') }} </td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</table>

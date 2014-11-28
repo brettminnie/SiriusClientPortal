@@ -1,0 +1,76 @@
+<table class="display-data">
+    <tr>
+        <td colspan="2"><h3>Personal Information</h3></td>
+    </tr>
+    <tr>
+        <td class="field-name">Salutation:</td>
+        <td>{{ data.salutation|default('') }}</td>
+    </tr>
+    <tr>
+        <td class="field-name">First Names:</td>
+        <td>{{ data.firstname|default('') }}</td>
+    </tr>
+    <tr>
+        <td class="field-name">Surname:</td>
+        <td>{{ data.surname|default('') }}</td>
+    </tr>
+    <tr>
+        <td class="field-name">Date of Birth:</td>
+        <td>{{ data.dob|default('') }}</td>
+    </tr>
+    <tr>
+        <td colspan="2"><h3>Contact Information</h3></td>
+    </tr>
+    <tr>
+        <td colspan="2"><h4>Email</h4></td>
+    </tr>
+    <tr>
+        <td class="field-name">Email Address:</td>
+        <td>{{ data.email|default('') }}</td>
+    </tr>
+
+    <tr>
+        <td colspan="2"><h4>Addresses</h4></td>
+    </tr>
+    {% for address in data.addresses %}
+        {% set AddressLines = '' %}
+        {% for lines in address.addressLines %}
+            {% set AddressLines = lines ~ '<br/>' %}
+        {% endfor %}
+        <tr>
+            <td class="field-name">{{ address.type|default('') }} Address:</td>
+            <td>{{ AddressLines|default('')|raw }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Town:</td>
+            <td>{{ address.town|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">County:</td>
+            <td>{{ address.county|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Country:</td>
+            <td>{{ address.country|default('') }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Postcode:</td>
+            <td>{{ address.postcode|default('') }}</td>
+        </tr>
+    {% endfor %}
+
+    <tr>
+        <td colspan="2"><h4>Contact Numbers</h4></td>
+    </tr>
+    {% for number in data.phoneNumbers %}
+        <tr>
+            <td class="field-name">{{ number.type|default('') }} Phone Number:</td>
+            <td>{{ number.phoneNumber|default('')|raw }}</td>
+        </tr>
+        <tr>
+            <td class="field-name">Default:</td>
+            <td>{% if number.default %}Yes{% else %}No{% endif %}</td>
+        </tr>
+    {% endfor %}
+
+</table>

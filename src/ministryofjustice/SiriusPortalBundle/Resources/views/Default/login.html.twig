@@ -1,0 +1,13 @@
+<div>
+    <form class="login-form">
+        {% if error is defined %}
+            <span class="error">{{ error.data.error }}</span>
+        {% endif %}
+        <h3>Login</h3>
+        <label for="donor_id">Donor Reference Number</label>
+        <input id="uid" name="uid" value="{{ app.request.get('uid')|default('') }}"/><br />
+        <label for="dob">Date of Birth</label>
+        <input id="dob" name="dob" value="{{ app.request.get('dob')|default('') }}"/><br />
+        <input type="submit" value="Fetch my cases" id="login_button">
+    </form>
+</div>

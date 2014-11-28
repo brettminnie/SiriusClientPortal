@@ -1,0 +1,17 @@
+{% set childCases=0 %}
+{% for child in data.children %}
+    {% if child.powerOfAttorneys is not empty %}
+        {% set childCases = childCases +  child.powerOfAttorneys|length %}
+    {% endif %}
+    {% if child.deputyships is not empty %}
+        {% set childCases = childCases +  child.deputyships|length %}
+    {% endif %}
+{% endfor %}
+
+<table class="display-data">
+<tr><td><h3>My Overview</h3></td></tr>
+<tr><td>I have {{ data.powerOfAttorneys|length + data.deputyships|length }} case(s)</td></tr>
+<tr><td>I have {{ data.children|length }} linked person records</td></tr>
+<tr><td>I have {{ childCases }} linked cases</td></tr>
+
+</table>
